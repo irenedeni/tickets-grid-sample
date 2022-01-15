@@ -1,6 +1,8 @@
-import Ticket from "./Ticket"
+import TicketHeader from "./TicketHeader"
+import TicketMain from "./TicketMain"
 
 
 export {
-  Ticket
+  TicketHeader,
+  TicketMain
 }
