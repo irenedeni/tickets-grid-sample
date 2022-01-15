@@ -8,8 +8,8 @@ const TicketMain = (props: IPerk) => {
   return (
     <GridMain>
       {props.perk ?
-        <span>✔️</span> 
-        : <span>-</span> 
+        <SymbolDiv><Icon src="./icons/check-icon.png"/></SymbolDiv> 
+        : <SymbolDiv><Icon src="./icons/dash-icon.png"/></SymbolDiv> 
       }
       
     </GridMain>
@@ -21,11 +21,28 @@ const GridMain = styled.div`
   text-align: center;
   vertical-align: middle;
   text-align: center;
+  padding: 0px 10px;
   justify-items: center;
   align-self: center;
-  padding: 10px;
-  background-color: #fafafa;
-  width: 100%;
+  :nth-child(odd) {
+    background-color: ${({ theme }) => theme.lightGrey};
+  }
+  :last-child {
+    border-bottom: 1px solid ${({ theme }) => theme.mediumGrey};
+  }
+`
+const SymbolDiv = styled.div`
+  display: flex;
+  padding: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+`
+const Icon = styled.img`
+  width: 12px;
+  height: 12px;
+  max-width: 12px;
+  max-height: 12px;
 `
 
 export default TicketMain

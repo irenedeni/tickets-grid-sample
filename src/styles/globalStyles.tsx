@@ -6,7 +6,7 @@ import TrumpSoftProBold from "./fonts/TrumpSoftPro-Bold.woff"
 
 interface ITheme {
   theme:  {
-    text: string;
+    textPrimary: string;
     white: string;
   };
 }
@@ -35,11 +35,10 @@ const GlobalStyle = createGlobalStyle<ITheme>`
   body {
     margin: 0px;
     font-family: "Graphik-Regular";
-    text-transform: uppercase;
     font-weight: 300;
     font-size: 14px;
-    line-height: 20px;
-    color: ${({ theme }) => theme.text};
+    line-height: 16px;
+    color: ${({ theme }) => theme.textPrimary};
   }
   h1,
   h2,
@@ -49,8 +48,9 @@ const GlobalStyle = createGlobalStyle<ITheme>`
   h6 {
     font-family: 'Trump-Bold';
     font-weight: 700;
+    text-transform: uppercase;
     margin: 0px;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.textPrimary};
   }
 
   a, a:hover, a:focus, a:active {

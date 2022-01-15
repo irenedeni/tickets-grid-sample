@@ -5,20 +5,26 @@ import { ITicket } from "../slices/TicketsSlice"
 const TicketHeader = (props: ITicket) => {
   return (
     <GridHeader>
-      <h5>{props.ticketName}</h5>
-      <p>{props.ticketDescription}</p>
+      <H6>{props.ticketName}</H6>
+      <P>{props.ticketDescription}</P>
     </GridHeader>
   )
 }
 
 export const GridHeader = styled.div`
-  padding: 5px;
+  padding: 10px;
   justify-self: center;
   justify-items: center;
   text-align: center;
   align-self: center;
-  width: 100%;
   height: 200px;
+`
+
+const H6 = styled.h6``
+const P = styled.p`
+  color: ${({ theme }) => theme.textSecondary};
+  letter-spacing: -0.14px;
+  line-height: 22px;
 `
 
 export default TicketHeader

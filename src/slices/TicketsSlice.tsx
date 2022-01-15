@@ -38,7 +38,8 @@ const TicketsSlice = () => {
       // I am assigning to the ticketGroup variable the second item of the data array 
       // (specifically, the array "tickets" property only).
       const ticketGroup:ITicket[] = json.data[1].tickets
-      console.log("ticketGroup",ticketGroup)
+
+      console.log("json.data", json.data)
       setData(ticketGroup)
     })
   }
@@ -48,6 +49,7 @@ const TicketsSlice = () => {
   },[])
 
   const allPerks:string[] = []
+  console.log("data", data)
 
   const findAllPerks = () => {
     data?.length > 0 && data.map((ticket:ITicket) => {
@@ -65,14 +67,14 @@ const TicketsSlice = () => {
     <Container>
       <Slice>
         <GridContainer>
-          <div>
-            <GridHeader />
+          <FirstColumn>
+            <GridHeader style={{ borderRight: "0px" }}/>
             {allPerks?.length > 0 && allPerks.map((perk, index) => (
               <AllPerks key={index}>
                 {perk}
               </AllPerks>
             ))}
-          </div>
+          </FirstColumn>
           {data?.length > 0 && data.map((ticket:ITicket, index) => {
             const perks = ticket.ticketPerks
             for(let i = 0; i < perks.length; i++){
@@ -84,7 +86,7 @@ const TicketsSlice = () => {
             const thisPerksOnly = perks.map(p => p.ticketPerk)
 
             return (
-              <div key={index}>
+              <TicketColumn key={index}>
                 <TicketHeader {...ticket} />
                 {allPerks?.length > 0 && allPerks.map((currentPerk, i) => {
                   if(thisPerksOnly.includes(currentPerk)){
@@ -93,7 +95,7 @@ const TicketsSlice = () => {
                     return <TicketMain perk={false} key={i}/>
                   }
                 })}
-              </div>
+              </TicketColumn>
             )
           })}
         </GridContainer>
@@ -124,24 +126,33 @@ const GridContainer = styled.div`
   width: 100%;
   height: auto;
   display: grid;
-  padding: 20px;
-  background-color: yellow;
   justify-items: start;
   grid-template-columns: [col1] 20% [col2] 20% [col3] 20% [col4] 20% [col5] 20%;
 `
 const AllPerks = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #333;
+  font-family: "Graphik-Regular";
   flex-wrap: wrap;
-  word-break: break-all;
+  text-align: right;
+  height: 35px;
+  padding: 10px;
+  justify-content: center;
+  letter-spacing: -0.21px;
+  :nth-child(odd){
+    background-color: ${({ theme }) => theme.lightGrey};
+  }
+  :last-child{
+    border-bottom: 1px solid ${({ theme }) => theme.mediumGrey};
+  }
 `
-const TestDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  word-break: break-all;
-  color: green;
+
+const FirstColumn = styled.div``
+
+const TicketColumn = styled.div`
+  :nth-child(2), :nth-child(3), :nth-child(4){
+    border-right: 1px solid ${({ theme }) => theme.mediumGrey};
+  }
 `
 
 export default TicketsSlice
