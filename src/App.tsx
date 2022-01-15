@@ -1,13 +1,13 @@
 import { GlobalStyles, ThemeProvider } from './styles'
 
-import { Test } from "./components"
+import { TicketsSlice } from "./slices"
 
 
 function App() {
   return (
     <ThemeProvider>
       <GlobalStyles />
-      <Test />
+      <TicketsSlice/>
     </ThemeProvider>    
   )
 }

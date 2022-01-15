@@ -1,6 +1,6 @@
-import Test from "./Test"
+import Ticket from "./Ticket"
 
 
 export {
-  Test
+  Ticket
 }
