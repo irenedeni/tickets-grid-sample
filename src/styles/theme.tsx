@@ -7,7 +7,8 @@ export const theme = {
   textSecondary: "#505666",
   boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
   primary: "#CC0099",
-  secondary: "#FF4422",
+  accent: "#FF4422",
+  secondary: "#660099", 
   gradient: "transparent linear-gradient(90deg, #660099 0%, #CC0099 100%) 0% 0% no-repeat padding-box",
 }
 

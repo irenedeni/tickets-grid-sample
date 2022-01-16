@@ -24,7 +24,7 @@ const TicketFooter = (props: ITicket) => {
         <Button 
           href={props.ticketButtonLink} 
           target="_blank"
-          disabled={props.ticketButtonLabel === "Sold out" ? true : false}
+          disabledBtn={props.ticketButtonLabel === "Sold out" ? true : false}
         >{props.ticketButtonLabel}
         </Button>
       </PriceDiv>
