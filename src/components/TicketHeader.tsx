@@ -16,7 +16,7 @@ const TicketHeader = (props: ITicket) => {
         {props.ticketStrikethroughPrice ?
           <PriceComparison>
             <StrikethroughPrice>€ {props.ticketStrikethroughPrice}</StrikethroughPrice>
-            <ActualPrice> € {props.ticketActualPrice}</ActualPrice>
+            <ActualPrice highlightedPrice> € {props.ticketActualPrice}</ActualPrice>
           </PriceComparison>
           : <ActualPrice> € {props.ticketActualPrice}</ActualPrice>
         }
@@ -74,10 +74,10 @@ const HighlightedLabel = styled.div<ITicketStyle>`
   letter-spacing: 1.12px;
   font-size: 14px;
   text-align: center;
-  padding: 8px 0px;
+  padding: 10px 0px;
   background: ${({ theme }) => theme.gradient};
   position: absolute;
-  top: -60px;
+  top: -70px;
   left: 0px;
   box-shadow: ${({ theme }) => props => props.highlighted && theme.boxShadow};
 `
@@ -102,10 +102,10 @@ export const StrikethroughPrice = styled.span`
   color: ${({ theme }) => theme.darkGrey};
 `
 
-export const ActualPrice = styled.span`
+export const ActualPrice = styled.span<ITicketStyle>`
   font-size: 20px;
   font-family: "Graphik-Medium";
-  color: ${({ theme }) => theme.accent};
+  color: ${({ theme }) => props => props.highlightedPrice ? theme.accent : theme.textPrimary};
 `
 
 export const VatInfo = styled.span`

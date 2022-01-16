@@ -16,7 +16,7 @@ const TicketFooter = (props: ITicket) => {
         {props.ticketStrikethroughPrice ?
           <PriceComparison>
             <StrikethroughPrice>€ {props.ticketStrikethroughPrice}</StrikethroughPrice>
-            <ActualPrice> € {props.ticketActualPrice}</ActualPrice>
+            <ActualPrice highlightedPrice> € {props.ticketActualPrice}</ActualPrice>
           </PriceComparison>
           : <ActualPrice> € {props.ticketActualPrice}</ActualPrice>
         }
