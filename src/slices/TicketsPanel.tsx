@@ -9,11 +9,16 @@ export interface ITicket {
   ticketButtonLink: string
   ticketDescription: string
   ticketDiscount?: string
-  ticketHighlighted: boolean
+  ticketHighlighted?: boolean
   ticketName: string
   ticketPerks: Array<string | any>
   ticketStrikethroughPrice?: string;
   ticketTopLabel?: string
+}
+
+export interface ITicketStyle {
+  highlighted?: boolean
+  disabled?: boolean
 }
 
 const TicketsPanel = () => {
@@ -86,7 +91,7 @@ const TicketsPanel = () => {
             const thisPerksOnly = perks.map(p => p.ticketPerk)
 
             return (
-              <TicketColumn key={index}>
+              <TicketColumn key={index} highlighted={ticket.ticketHighlighted}>
                 <TicketHeader {...ticket}/>
                 {allPerks?.length > 0 && allPerks.map((currentPerk, i) => {
                   if(thisPerksOnly.includes(currentPerk)){
@@ -148,9 +153,14 @@ const AllPerks = styled.div`
   }
 `
 
-const FirstColumn = styled.div``
+const FirstColumn = styled.div`
+  padding-top: 40px;
+`
 
-const TicketColumn = styled.div`
+const TicketColumn = styled.div<ITicketStyle>`
+  box-shadow: ${({ theme }) => props => props.highlighted && theme.boxShadow};
+  padding-top: 40px;
+
   :nth-child(2), :nth-child(3), :nth-child(4){
     border-right: 1px solid ${({ theme }) => theme.mediumGrey};
   }

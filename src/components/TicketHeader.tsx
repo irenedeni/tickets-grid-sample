@@ -1,13 +1,13 @@
 import styled from "styled-components"
-import { ITicket } from "../slices/TicketsPanel"
+import { ITicket, ITicketStyle } from "../slices/TicketsPanel"
 
-export interface ITicketStyle {
-  disabled?: boolean
-}
 
 const TicketHeader = (props: ITicket) => {
   return (
     <GridHeader>
+      {props.ticketHighlighted &&
+        <HighlightedLabel highlighted={props.ticketHighlighted}>Popular choice</HighlightedLabel>
+      }
       <H6>{props.ticketName}</H6>
       <Description>
         <P>{props.ticketDescription}</P>
@@ -36,18 +36,20 @@ const TicketHeader = (props: ITicket) => {
 export const GridHeader = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 15px;
+  padding: 0px;
   justify-items: center;
   text-align: center;
   align-items: stretch;
-  height: 320px;
+  height: 350px;
+  position: relative;
 `
 
 const H6 = styled.h6`
-  margin-bottom: 10px;
+  padding: 0px 15px;
 `
 const Description = styled.div`
   height: 200px;
+  padding: 0px 15px;
 `
 
 const P = styled.p`
@@ -55,8 +57,26 @@ const P = styled.p`
   letter-spacing: -0.14px;
   line-height: 22px;
 `
+const HighlightedLabel = styled.div<ITicketStyle>`
+  display: block;
+  width: 100%;
+  color: ${({ theme }) => theme.white};
+  font-family: "Shentox";
+  text-transform: uppercase;
+  letter-spacing: 1.12px;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 0px;
+  background: ${({ theme }) => theme.gradient};
+  position: absolute;
+  top: -60px;
+  left: 0px;
+  box-shadow: ${({ theme }) => props => props.highlighted && theme.boxShadow};
+`
+
 export const PriceDiv = styled.div`
   display: flex;
+  padding: 0px 15px;
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -11,7 +11,6 @@ const TicketMain = (props: IPerk) => {
         <SymbolDiv><Icon src="./icons/check-icon.png"/></SymbolDiv> 
         : <SymbolDiv><Icon src="./icons/dash-icon.png"/></SymbolDiv> 
       }
-      
     </GridMain>
   )
 }
