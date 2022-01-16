@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
-import { TicketHeader, TicketMain } from "../components"
+import { TicketHeader, TicketMain, TicketFooter } from "../components"
 import { GridHeader } from "../components/TicketHeader"
 
 export interface ITicket {
@@ -16,7 +16,7 @@ export interface ITicket {
   ticketTopLabel?: string
 }
 
-const TicketsSlice = () => {
+const TicketsPanel = () => {
 
   const [data, setData] = useState<ITicket[]>([])
 
@@ -87,7 +87,7 @@ const TicketsSlice = () => {
 
             return (
               <TicketColumn key={index}>
-                <TicketHeader {...ticket} />
+                <TicketHeader {...ticket}/>
                 {allPerks?.length > 0 && allPerks.map((currentPerk, i) => {
                   if(thisPerksOnly.includes(currentPerk)){
                     return  <TicketMain perk={true} key={i}/>
@@ -95,6 +95,7 @@ const TicketsSlice = () => {
                     return <TicketMain perk={false} key={i}/>
                   }
                 })}
+                <TicketFooter {...ticket}/>
               </TicketColumn>
             )
           })}
@@ -112,7 +113,7 @@ const Container = styled.div`
   align-items: center;
 `
 const Slice = styled.div`
-  margin: 0px 140px;
+  margin: 0px 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -155,4 +156,4 @@ const TicketColumn = styled.div`
   }
 `
 
-export default TicketsSlice
+export default TicketsPanel

@@ -27,7 +27,7 @@ const GridMain = styled.div`
   :nth-child(odd) {
     background-color: ${({ theme }) => theme.lightGrey};
   }
-  :last-child {
+  :nth-last-child(2) {
     border-bottom: 1px solid ${({ theme }) => theme.mediumGrey};
   }
 `

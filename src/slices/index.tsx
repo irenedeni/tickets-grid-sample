@@ -1,6 +1,6 @@
-import TicketsSlice from "./TicketsSlice"
+import TicketsPanel from "./TicketsPanel"
 
 
 export {
-  TicketsSlice
+  TicketsPanel
 }

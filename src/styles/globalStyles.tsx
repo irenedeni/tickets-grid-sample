@@ -8,6 +8,7 @@ interface ITheme {
   theme:  {
     textPrimary: string;
     white: string;
+    primary: string;
   };
 }
 
@@ -53,8 +54,20 @@ const GlobalStyle = createGlobalStyle<ITheme>`
     color: ${({ theme }) => theme.textPrimary};
   }
 
-  a, a:hover, a:focus, a:active {
+  a {
      text-decoration: none;
+     width: max-content;
+     letter-spacing: 0.33px;
+     padding: 15px 20px;
+     text-transform: uppercase;
+     background-color: ${({ theme }) => theme.primary};
+     font-size: 13px;
+     font-family: "Graphik-Regular";
+     border-radius: 50px;
+     color: ${({ theme }) => theme.white};
+  }
+  a:hover, a:focus, a:active {
+    opacity: 0.8;
   }
 
   h6 {
