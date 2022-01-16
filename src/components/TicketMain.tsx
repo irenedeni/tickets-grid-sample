@@ -29,7 +29,7 @@ const GridMain = styled.div`
   text-align: center;
   vertical-align: middle;
   text-align: center;
-  padding: 0px 10px;
+  padding: 0px 15px;
   justify-items: center;
   align-self: center;
   :nth-child(odd) {

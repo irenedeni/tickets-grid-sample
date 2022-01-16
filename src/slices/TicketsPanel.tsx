@@ -127,10 +127,10 @@ const Slice = styled.div`
   width: 100%;
   height: 100%;
   padding: 70px 0px;
-  @media (max-width: 1250px) {
+  @media (max-width: 1420px) {
     margin: 0px 100px;
   }
-  @media (max-width: 1100px) {
+  @media (max-width: 1150px) {
     margin: 0px 30px;
   }
 `
@@ -138,6 +138,7 @@ const GridContainer = styled.div`
   width: 100%;
   height: auto;
   display: grid;
+  box-sizing: border-box;
   justify-items: start;
   grid-template-columns: [col1] 20% [col2] 20% [col3] 20% [col4] 20% [col5] 20%;
   @media (max-width: 1050px) {
@@ -152,7 +153,7 @@ const AllPerks = styled.div`
   flex-wrap: wrap;
   text-align: right;
   height: 35px;
-  padding: 10px;
+  padding: 10px 15px 10px 10px;
   justify-content: center;
   letter-spacing: -0.21px;
   :nth-child(odd){
@@ -172,9 +173,11 @@ const FirstColumn = styled.div`
 
 const TicketColumn = styled.div<ITicketStyle>`
   box-shadow: ${({ theme }) => props => props.highlighted && theme.boxShadow};
+  box-sizing: border-box;
   padding-top: 40px;
+  z-index: ${props => props.highlighted && "10"};
   :nth-child(2), :nth-child(3), :nth-child(4){
-    border-right: 1px solid ${({ theme }) => theme.mediumGrey};
+    border-right: ${({ theme }) => props => !props.highlighted && `1px solid ${theme.mediumGrey}`};
     @media (max-width: 1050px) {
       border-right: 0px;
     }
