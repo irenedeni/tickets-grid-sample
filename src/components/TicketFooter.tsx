@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { ITicket } from "../slices/TicketsPanel"
 import { 
-  ITicketStyle, 
   PriceDiv, 
   PriceComparison, 
   StrikethroughPrice, 
@@ -25,7 +24,7 @@ const TicketFooter = (props: ITicket) => {
         <Button 
           href={props.ticketButtonLink} 
           target="_blank"
-          disabled={props.ticketButtonLabel == "Sold out" ? true : false}
+          disabled={props.ticketButtonLabel === "Sold out" ? true : false}
         >{props.ticketButtonLabel}
         </Button>
       </PriceDiv>
@@ -42,7 +41,6 @@ const GridFooter = styled.div`
   align-items: stretch;
   height: 120px;
 `
-
 
 export default TicketFooter
 
