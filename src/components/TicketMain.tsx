@@ -28,7 +28,6 @@ const GridMain = styled.div`
   justify-self: center;
   text-align: center;
   vertical-align: middle;
-  text-align: center;
   padding: 0px 15px;
   justify-items: center;
   align-self: center;
