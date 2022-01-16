@@ -63,6 +63,7 @@ const TicketsPanel = (props: IProps) => {
           allPerks.push(perks[i].ticketPerk)
         }
       }
+      return data
     })
   }
   findAllPerks()
