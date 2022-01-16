@@ -6,6 +6,7 @@ export const theme = {
   textPrimary: "#000000",
   textSecondary: "#505666",
   boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
+  boxShadowPanel: "0 2px 8px rgb(0 0 0 / 5%)",
   primary: "#CC0099",
   accent: "#FF4422",
   secondary: "#660099", 

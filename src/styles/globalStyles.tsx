@@ -78,7 +78,7 @@ const GlobalStyle = createGlobalStyle<ITheme>`
      background-color: ${({ theme }) => theme.primary};
      font-size: 13px;
      font-family: "Graphik-Regular";
-     border-radius: 50px;
+     border-radius: 24px;
      color: ${({ theme }) => theme.white};
   }
   a:hover, a:focus, a:active {

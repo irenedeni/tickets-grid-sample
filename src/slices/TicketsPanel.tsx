@@ -19,6 +19,7 @@ export interface ITicket {
 export interface ITicketStyle {
   highlighted?: boolean
   disabledBtn?: boolean
+  highlightedPrice?: boolean
 }
 
 interface IProps {
@@ -37,19 +38,13 @@ const TicketsPanel = (props: IProps) => {
         'Accept': 'application/json'
        }
     })
+    // Alternatively: 
+    // fetch('https://next.tnw-staging.com/next-api/tickets.json')
     .then(function(res){
-      console.log(res)
       return res.json()
     })
     .then(function(json) {
-      // Given the following:
-      // 1. In this case, the data and the structure passed by JSON is not going to change;
-      // 2. We are only interested in a specific ticket group, the “In-person + Digital”;
-      // I am assigning to the ticketGroup variable the second item of the data array 
-      // (specifically, the array "tickets" property only).
       const ticketGroup:ITicket[] = json.data[1].tickets
-
-      console.log("json.data", json.data)
       setData(ticketGroup)
     })
   }
@@ -105,7 +100,7 @@ const TicketsPanel = (props: IProps) => {
                 <TicketHeader {...ticket}/>
                 {allPerks?.length > 0 && allPerks.map((currentPerk, i) => {
                   if(thisPerksOnly.includes(currentPerk)){
-                    return  <TicketMain perk={true} perkText={thisPerksOnly[i]} key={i}/>
+                    return  <TicketMain perk perkText={thisPerksOnly[i]} key={i}/>
                   } else {
                     return <TicketMain perk={false} perkText={thisPerksOnly[i]} key={i}/>
                   }
@@ -126,12 +121,13 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 0px;
+  padding: 60px 0px;
   background-color: ${({ theme }) => theme.lightGrey};
   @media (max-width: 700px) {
-    margin: 30px 0px;
+    padding: 50px 0px;
   }
 `
+
 const TitleBlock = styled.div`
   margin-bottom: 15px;
   margin: 30px 0px 60px 0px;
@@ -147,26 +143,28 @@ const TitleBlock = styled.div`
     margin: 30px 30px 60px 30px;
   }
 `
+
 const Title = styled.h1`
   margin-bottom: 30px;
 `
+
 const Subtitle = styled.h4``
 
 const Slice = styled.div`
-  margin: 0px 200px;
+  margin: 0px 120px;
   background-color: ${({ theme }) => theme.white};
   display: flex;
+  box-shadow: ${({ theme }) => theme.boxShadowPanel};
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 1520px;
-  width: 100%;
   height: 100%;
   padding: 70px 0px;
   @media (max-width: 1420px) {
     margin: 0px 100px;
   }
-  @media (max-width: 1150px) {
+  @media (max-width: 1200px) {
     margin: 0px 30px;
   }
   @media (max-width: 1050px) {
@@ -174,6 +172,7 @@ const Slice = styled.div`
     margin-top: 70px;
   }
 `
+
 const GridContainer = styled.div`
   width: 100%;
   height: auto;
@@ -186,6 +185,7 @@ const GridContainer = styled.div`
     flex-direction: column;
   }
 `
+
 const AllPerks = styled.div`
   display: flex;
   flex-direction: column;
