@@ -127,6 +127,7 @@ const Container = styled.div`
     padding: 50px 0px;
   }
 `
+
 const TitleBlock = styled.div`
   margin-bottom: 15px;
   margin: 30px 0px 60px 0px;
@@ -142,9 +143,11 @@ const TitleBlock = styled.div`
     margin: 30px 30px 60px 30px;
   }
 `
+
 const Title = styled.h1`
   margin-bottom: 30px;
 `
+
 const Subtitle = styled.h4``
 
 const Slice = styled.div`
@@ -169,6 +172,7 @@ const Slice = styled.div`
     margin-top: 70px;
   }
 `
+
 const GridContainer = styled.div`
   width: 100%;
   height: auto;
@@ -181,6 +185,7 @@ const GridContainer = styled.div`
     flex-direction: column;
   }
 `
+
 const AllPerks = styled.div`
   display: flex;
   flex-direction: column;

@@ -51,6 +51,7 @@ export const GridHeader = styled.div`
 const H6 = styled.h6`
   padding: 0px 15px;
 `
+
 const Description = styled.div`
   height: 200px;
   padding: 0px 15px;
@@ -65,6 +66,7 @@ const P = styled.p`
   letter-spacing: -0.14px;
   line-height: 22px;
 `
+
 const HighlightedLabel = styled.div<ITicketStyle>`
   display: block;
   width: 100%;

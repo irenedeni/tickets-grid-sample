@@ -1,5 +1,7 @@
-# Tickets sample - TNW
+# Tickets grids sample 
+This is an example of a ticket panel component. This project uses React, Typescript and styled-components.
 
+## Start the app
 In the project directory, you can run:
 
 ### `yarn start`

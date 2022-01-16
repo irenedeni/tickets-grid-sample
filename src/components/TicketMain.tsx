@@ -42,6 +42,7 @@ const GridMain = styled.div`
     }
   }
 `
+
 const SymbolDiv = styled.div`
   display: flex;
   padding: 10px 0px;
@@ -52,12 +53,14 @@ const SymbolDiv = styled.div`
     display: none
   }
 `
+
 const Icon = styled.img`
   width: 12px;
   height: 12px;
   max-width: 12px;
   max-height: 12px;
 `
+
 const IconSpan = styled.span`
   margin-right: 10px;
 `
