@@ -1,6 +1,10 @@
-import Ticket from "./Ticket"
+import TicketHeader from "./TicketHeader"
+import TicketMain from "./TicketMain"
+import TicketFooter from "./TicketFooter"
 
 
 export {
-  Ticket
+  TicketHeader,
+  TicketMain,
+  TicketFooter
 }
