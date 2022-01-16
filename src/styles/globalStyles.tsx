@@ -6,9 +6,9 @@ import TrumpSoftProBold from "./fonts/TrumpSoftPro-Bold.woff"
 
 interface ITheme {
   theme:  {
-    textPrimary: string;
-    white: string;
-    primary: string;
+    textPrimary: string
+    white: string
+    primary: string
   };
 }
 

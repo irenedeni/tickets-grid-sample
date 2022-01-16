@@ -24,7 +24,7 @@ const TicketHeader = (props: ITicket) => {
         <Button 
           href={props.ticketButtonLink} 
           target="_blank"
-          disabled={props.ticketButtonLabel === "Sold out" ? true : false}
+          disabledBtn={props.ticketButtonLabel === "Sold out" ? true : false}
         >
           {props.ticketButtonLabel}
         </Button>
@@ -42,6 +42,10 @@ export const GridHeader = styled.div`
   align-items: stretch;
   height: 350px;
   position: relative;
+  @media (max-width: 1050px) {
+    height: auto;
+    padding: 20px 0px;
+  }
 `
 
 const H6 = styled.h6`
@@ -50,6 +54,10 @@ const H6 = styled.h6`
 const Description = styled.div`
   height: 200px;
   padding: 0px 15px;
+  @media (max-width: 1050px) {
+    height: auto;
+    padding: 20px 15px;
+  }
 `
 
 const P = styled.p`
@@ -97,7 +105,7 @@ export const StrikethroughPrice = styled.span`
 export const ActualPrice = styled.span`
   font-size: 20px;
   font-family: "Graphik-Medium";
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.accent};
 `
 
 export const VatInfo = styled.span`
@@ -108,11 +116,10 @@ export const VatInfo = styled.span`
 
 export const Button = styled.a<ITicketStyle>`
   margin-top: 20px;
-  background-color: ${({ theme }) => props => props.disabled && theme.mediumGrey};
-  cursor: ${props => props.disabled && "default"};
-  pointer-events: ${props => props.disabled && "none"};
+  background-color: ${({ theme }) => props => props.disabledBtn && theme.mediumGrey};
+  pointer-events: ${props => props.disabledBtn && "none"};
   :hover {
-    background-color: ${({ theme }) => props => props.disabled && theme.mediumGrey};
+    background-color: ${({ theme }) => props => props.disabledBtn && theme.mediumGrey};
   }
 `
 

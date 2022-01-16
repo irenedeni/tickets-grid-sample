@@ -18,7 +18,7 @@ export interface ITicket {
 
 export interface ITicketStyle {
   highlighted?: boolean
-  disabled?: boolean
+  disabledBtn?: boolean
 }
 
 const TicketsPanel = () => {
@@ -95,9 +95,9 @@ const TicketsPanel = () => {
                 <TicketHeader {...ticket}/>
                 {allPerks?.length > 0 && allPerks.map((currentPerk, i) => {
                   if(thisPerksOnly.includes(currentPerk)){
-                    return  <TicketMain perk={true} key={i}/>
+                    return  <TicketMain perk={true} perkText={thisPerksOnly[i]} key={i}/>
                   } else {
-                    return <TicketMain perk={false} key={i}/>
+                    return <TicketMain perk={false} perkText={thisPerksOnly[i]} key={i}/>
                   }
                 })}
                 <TicketFooter {...ticket}/>
@@ -118,7 +118,7 @@ const Container = styled.div`
   align-items: center;
 `
 const Slice = styled.div`
-  margin: 0px 100px;
+  margin: 0px 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,6 +127,12 @@ const Slice = styled.div`
   width: 100%;
   height: 100%;
   padding: 70px 0px;
+  @media (max-width: 1250px) {
+    margin: 0px 100px;
+  }
+  @media (max-width: 1100px) {
+    margin: 0px 30px;
+  }
 `
 const GridContainer = styled.div`
   width: 100%;
@@ -134,6 +140,10 @@ const GridContainer = styled.div`
   display: grid;
   justify-items: start;
   grid-template-columns: [col1] 20% [col2] 20% [col3] 20% [col4] 20% [col5] 20%;
+  @media (max-width: 1050px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 const AllPerks = styled.div`
   display: flex;
@@ -155,14 +165,22 @@ const AllPerks = styled.div`
 
 const FirstColumn = styled.div`
   padding-top: 40px;
+  @media (max-width: 1050px) {
+    display: none;
+  }
 `
 
 const TicketColumn = styled.div<ITicketStyle>`
   box-shadow: ${({ theme }) => props => props.highlighted && theme.boxShadow};
   padding-top: 40px;
-
   :nth-child(2), :nth-child(3), :nth-child(4){
     border-right: 1px solid ${({ theme }) => theme.mediumGrey};
+    @media (max-width: 1050px) {
+      border-right: 0px;
+    }
+  }
+  @media (max-width: 1050px) {
+    border-top: 1px solid ${({ theme }) => theme.mediumGrey};
   }
 `
 
