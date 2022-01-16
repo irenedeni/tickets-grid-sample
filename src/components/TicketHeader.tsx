@@ -57,7 +57,7 @@ const Description = styled.div`
   padding: 0px 15px;
   @media (max-width: 1050px) {
     height: auto;
-    padding: 20px 15px;
+    padding: 20px 30px;
   }
 `
 
